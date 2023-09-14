@@ -14,5 +14,7 @@
 <hr width="33%" />
 
 <h2>Вывод Pipe, прибавляющего 5 к числу:</h2>
-<p>Изначальное число: {{ initialNumber }}</p>
+<label for="num">Введите число: </label>
+<input type="number" id="num" [(ngModel)]="initialNumber" />
+<p *ngIf="initialNumber !== null">Изначальное число: {{ initialNumber }}</p>
 <p>Число после "add_five" pipe: {{ initialNumber | add_five }}</p>
