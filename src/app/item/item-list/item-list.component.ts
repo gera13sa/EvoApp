@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent {
-
+  
   constructor(private activeRouter: ActivatedRoute) {}
 
   queryParams: any
