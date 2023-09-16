@@ -9,15 +9,15 @@ export class MainComponent {
   modelsArray = [
     {
       id: 1,
-      name: 'IPhone 12 Pro'
+      name: 'Товар 1'
     },
     {
       id: 2,
-      name: 'Nothing Phone (1)'
+      name: 'Товар 2'
     },
     {
       id: 3,
-      name: 'Samsung S22 Ultra'
+      name: 'Товар 3'
     }
   ]
 }
