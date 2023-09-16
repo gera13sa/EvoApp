@@ -1,0 +1,8 @@
+<h2>Главная страница</h2>
+<h3>Список товаров:</h3>
+
+<ul>
+  <li *ngFor="let phone of modelsArray">
+    <a routerLink="item/{{ phone.id }}">{{ phone.name }}</a>
+  </li>
+</ul>

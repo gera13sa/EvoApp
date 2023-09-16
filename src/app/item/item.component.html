@@ -1,0 +1,7 @@
+<p>Товар</p>
+<button routerLink="details">Информация</button>
+<button routerLink="list" [queryParams]="{ list: 1, enable: true }">
+  Список
+</button>
+
+<router-outlet></router-outlet>
