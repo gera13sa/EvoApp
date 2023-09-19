@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  textToDisplay = 'hello';
+
+  existingLinks = ['', 'page'];
+  tabLabels = ['Главная страница', 'Модуль Page'];
+  activeLink = this.existingLinks[0];
+
 }

@@ -1,1 +1,17 @@
-<span>App</span>
+<nav mat-tab-nav-bar animationDuration="500ms" [tabPanel]="tabPanel">
+  <a
+    mat-tab-link
+    *ngFor="let link of existingLinks; index as i"
+    [routerLink]="link"
+    (click)="activeLink = link"
+    [active]="activeLink == link"
+  >
+    {{ tabLabels[i] }}
+  </a>
+</nav>
+
+<br />
+
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
