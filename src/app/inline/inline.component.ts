@@ -25,6 +25,8 @@ export class InlineComponent {
       }
     ]);
 
+    meta.removeTag('property="og:desc"');
+
   }
 
   tags: any[] = [];
@@ -34,7 +36,7 @@ export class InlineComponent {
     this.tags[0] = this.meta.getTag('property="og:title"')?.outerHTML;
     this.tags[1] = this.meta.getTag('property="og:type"')?.outerHTML;
     this.tags[2] = this.meta.getTag('property="og:url"')?.outerHTML;
-    
+
   }
 
 }
