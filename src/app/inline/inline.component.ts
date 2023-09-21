@@ -27,12 +27,14 @@ export class InlineComponent {
 
   }
 
-  metaTags: {property: String, content: String}[] = [];
+  tags: any[] = [];
 
   ngOnInit() {
-    this.metaTags[0] = { property: 'og:title', content: String(this.meta.getTag('property="og:title"')?.content) };
-    this.metaTags[1] = { property: 'og:type', content: String(this.meta.getTag('property="og:type"')?.content) };
-    this.metaTags[2] = { property: 'og:url', content: String(this.meta.getTag('property="og:url"')?.content) };
+
+    this.tags[0] = this.meta.getTag('property="og:title"')?.outerHTML;
+    this.tags[1] = this.meta.getTag('property="og:type"')?.outerHTML;
+    this.tags[2] = this.meta.getTag('property="og:url"')?.outerHTML;
+    
   }
 
 }
