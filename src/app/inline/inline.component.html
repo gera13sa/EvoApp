@@ -1,4 +1,9 @@
 <hr />
 <br />
 <button routerLink="">Скрыть компонент inline</button>
-<p>Компонент inline с тегами og:title, og:type и og:url</p>
+<h3>Компонент inline с тегами:</h3>
+<ul>
+  <li *ngFor="let tags of metaTags">
+    {{ tags.property }} : {{ tags.content }}
+  </li>
+</ul>

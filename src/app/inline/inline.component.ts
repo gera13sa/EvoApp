@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
@@ -25,6 +25,14 @@ export class InlineComponent {
       }
     ]);
 
+  }
+
+  metaTags: {property: String, content: String}[] = [];
+
+  ngOnInit() {
+    this.metaTags[0] = { property: 'og:title', content: String(this.meta.getTag('property="og:title"')?.content) };
+    this.metaTags[1] = { property: 'og:type', content: String(this.meta.getTag('property="og:type"')?.content) };
+    this.metaTags[2] = { property: 'og:url', content: String(this.meta.getTag('property="og:url"')?.content) };
   }
 
 }
