@@ -1,1 +1,46 @@
-<span>App</span>
+<h1 class="title">Тесты работы CommonJS и ngx библиотек:</h1>
+
+<div class="card1">
+  <h2>Angular Material + Notiflix</h2>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Notiflix </mat-panel-title>
+      <mat-panel-description>
+        Проверка работы библиотеки Notiflix
+        <mat-icon>feedback</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <button
+      *ngFor="let alert of alertsArray"
+      mat-raised-button
+      color="primary"
+      (click)="notiflix_alert(alert.type)"
+      [matTooltip]="alert.tooltip"
+    >
+      {{ alert.text }}
+    </button>
+  </mat-expansion-panel>
+</div>
+
+<div class="card2">
+    <h2>ngx-bootstrap + day.js</h2>
+    <div class="row">
+        <h3>Выберите продолжительность отпуска:</h3>
+        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+          <input 
+          class="form-control" 
+          #drp="bsDaterangepicker" 
+          bsDaterangepicker [(ngModel)]="bsRangeValue" 
+          [bsConfig]="{ rangeInputFormat : 'DD.MM.YYYY' }"
+          >
+        </div>
+        <div class="col-xs-12 col-12 col-md-3 form-group mb-3">
+        <button (click)="check_date()" type="button" class="btn btn-primary" [disabled]="buttonDisabled">Проверить временной промежуток</button>
+        
+    </div>
+    <div *ngFor="let alert of bootstrapAlerts" class="">
+        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.text }}</alert>
+    </div>
+    </div>
+
+</div>

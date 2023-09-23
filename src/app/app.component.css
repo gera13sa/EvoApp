@@ -1,0 +1,25 @@
+.title {
+  text-align: center;
+}
+
+.card1 button {
+  margin: 5px;
+}
+
+mat-panel-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-card {
+  background-color: hsl(0, 0%, 95%);
+  margin: 0 10% 0 10%;
+}
+
+.card1,
+.card2 {
+  border-radius: 15px;
+  background-color: hsl(0, 0%, 95%);
+  margin: 0 10% 5% 10%;
+  padding: 20px;
+}
