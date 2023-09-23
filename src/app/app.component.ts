@@ -28,7 +28,7 @@ export class AppComponent {
     }
   ];
 
-  bsRangeValue: Date[];
+  dateRangeValues: Date[];
   currentDate = new Date();
 
   buttonDisabled = false;
@@ -50,8 +50,8 @@ export class AppComponent {
   }
 
   check_date(): void{
-    const startDate = dayjs(this.bsRangeValue[0]);
-    const endDate = dayjs(this.bsRangeValue[1]);
+    const startDate = dayjs(this.dateRangeValues[0]);
+    const endDate = dayjs(this.dateRangeValues[1]);
     const daysDifference = endDate.diff(startDate, 'days');
 
     if(daysDifference > 7) {
@@ -74,7 +74,7 @@ export class AppComponent {
   constructor() {
     var tempDate = new Date(this.currentDate);
     tempDate.setDate(tempDate.getDate() + 7);
-    this.bsRangeValue = [new Date(), tempDate];
+    this.dateRangeValues = [new Date(), tempDate];
   }
 
 }
