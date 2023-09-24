@@ -35,12 +35,11 @@
           >
         </div>
         <div class="col-xs-12 col-12 col-md-3 form-group mb-3">
-        <button (click)="check_date()" type="button" class="btn btn-primary" [disabled]="buttonDisabled">Проверить временной промежуток</button>
-        
-    </div>
-    <div *ngFor="let alert of bootstrapAlerts" class="">
-        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.text }}</alert>
-    </div>
+            <button (click)="check_date()" type="button" class="btn btn-primary" [disabled]="buttonDisabled">Проверить временной промежуток</button> 
+        </div>
+        <div *ngFor="let alert of bootstrapAlerts" class="">
+            <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.text }}</alert>
+        </div>
     </div>
 
 </div>
