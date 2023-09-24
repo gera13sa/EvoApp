@@ -38,7 +38,12 @@
             <button (click)="check_date()" type="button" class="btn btn-primary" [disabled]="buttonDisabled">Проверить временной промежуток</button> 
         </div>
         <div *ngFor="let alert of bootstrapAlerts" class="">
-            <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.text }}</alert>
+            <alert 
+            [type]="alert.type" 
+            [dismissOnTimeout]="alert.timeout"
+            >
+            {{ alert.text }}
+            </alert>
         </div>
     </div>
 
