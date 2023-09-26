@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ResponseService } from './response.service';
+import { IResponse } from './response-interface';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  textToDisplay = 'hello';
+  constructor(private responseService: ResponseService) {}
+
+  responseData: IResponse[] = [];
+
+  ngOnInit(){
+    this.responseData = this.responseService.getResponse();
+  }
 }

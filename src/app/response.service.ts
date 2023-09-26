@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { IResponse } from './response-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResponseService {
 
-constructor() { }
+  constructor() { }
 
-usersArray = [
+  usersArray: IResponse[] = [
   {
     "userId": 1,
     "id": 1,
@@ -26,6 +27,10 @@ usersArray = [
     "title": "fugiat veniam minus",
     "completed": false
   }
-]
+  ];
+
+  getResponse(): IResponse[] {
+    return this.usersArray;
+  }
 
 }

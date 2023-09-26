@@ -1,1 +1,5 @@
-<span>App</span>
+<h1>Данные полученные с Response Service:</h1>
+
+<span *ngFor="let object of responseData">
+    <pre>{{ object | json }}</pre>
+</span>
