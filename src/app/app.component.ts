@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ResponseService } from './response.service';
 import { IResponse } from './response-interface';
 
