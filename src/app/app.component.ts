@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ResponseService } from './response.service';
-import { IResponse } from './response-interface';
+import { IResponse } from './response.interface';
 
 @Component({
   selector: 'app-root',
