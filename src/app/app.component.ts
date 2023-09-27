@@ -13,7 +13,7 @@ export class AppComponent {
 
   responseData: IResponse[] = [];
 
-  ngOnInit(){
+  ngOnInit() {
     this.responseData = this.responseService.getResponse();
   }
 }
