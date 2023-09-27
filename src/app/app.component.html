@@ -1,1 +1,107 @@
-<span>App</span>
+<form class="container my-auto">
+  <h2>Добавление книги</h2>
+  <div class="mb-3">
+    <label for="bookName" class="form-label">Название:</label>
+    <input
+      pattern="[А-Я-а-я][А-Я-а-я]*"
+      minlength="2"
+      maxlength="16"
+      #title="ngModel"
+      type="text"
+      name="bookName"
+      class="form-control"
+      id="bookName"
+      [ngClass]="
+        title.touched || title.dirty
+          ? title.invalid
+            ? 'is-invalid'
+            : 'is-valid'
+          : null
+      "
+      [(ngModel)]="create_book.title"
+      required
+    />
+  </div>
+
+  <div *ngIf="title.hasError('minlength')" class="alert alert-danger">
+    Длина названия книги должна быть не менее 2-х символов!
+  </div>
+  <div
+    *ngIf="title.hasError('required') && title.touched"
+    class="alert alert-danger"
+  >
+    Поле названия книги не может быть пустым!
+  </div>
+  <div *ngIf="title.hasError('pattern')" class="alert alert-danger">
+    Название книги не может содержать латинский буквы, цифры, пробелы и спец.
+    символы!
+  </div>
+
+  <div class="mb-3">
+    <label for="bookName" class="form-label">Автор:</label>
+    <input
+      pattern="[А-Я-а-я][А-Я-а-я]*"
+      minlength="2"
+      maxlength="16"
+      #author="ngModel"
+      type="text"
+      name="bookAuthor"
+      class="form-control"
+      id="bookAuthor"
+      [ngClass]="
+        author.touched || author.dirty
+          ? author.invalid
+            ? 'is-invalid'
+            : 'is-valid'
+          : null
+      "
+      [(ngModel)]="create_book.author"
+      required
+    />
+  </div>
+
+  <div *ngIf="author.hasError('minlength')" class="alert alert-danger">
+    Длина имени автора книги должна быть не менее 2-х символов!
+  </div>
+  <div
+    *ngIf="author.hasError('required') && author.touched"
+    class="alert alert-danger"
+  >
+    Поле имени автора книги не может быть пустым!
+  </div>
+  <div *ngIf="author.hasError('pattern')" class="alert alert-danger">
+    Имя автора не может содержать латинский буквы, цифры, пробелы и спец.
+    символы!
+  </div>
+
+  <button
+    (click)="pushBook()"
+    class="btn btn-primary w-25"
+    type="submit"
+    [disabled]="author.invalid || title.invalid"
+  >
+    Добавить
+  </button>
+</form>
+
+<hr />
+
+<div class="container">
+  <h2>Список книг</h2>
+  <table class="table table-striped container pt-10">
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Название</th>
+        <th>Автор</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of booksArray; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
