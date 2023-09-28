@@ -35,7 +35,7 @@ export class CounterService {
     this.randomValueStreamSubscription = interval(2000)
       .pipe(
         map(() => {
-          const randomValue = Math.floor(Math.random() * 100);
+          const randomValue = Math.floor(Math.random() * 1000);
           return `Random Value: ${randomValue}`;
         })
       )

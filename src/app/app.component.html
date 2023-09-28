@@ -1,7 +1,12 @@
-<div class="container">
+<div class="container text-center">
+  <h1>Потоки данных</h1>
   <div class="row">
     <div class="col">
-      <button (click)="stopValueCounter()" class="btn btn-primary w-100">
+      <button
+        (click)="stopValueCounter()"
+        class="btn btn-primary w-100"
+        [disabled]="buttonsDisabled[0]"
+      >
         Остановить поток
       </button>
       <table class="table table-striped text-center">
@@ -18,7 +23,11 @@
       </table>
     </div>
     <div class="col">
-      <button (click)="stopRandomValueCounter()" class="btn btn-primary w-100">
+      <button
+        (click)="stopRandomValueCounter()"
+        class="btn btn-primary w-100"
+        [disabled]="buttonsDisabled[1]"
+      >
         Остановить поток
       </button>
       <table class="table table-striped text-center">

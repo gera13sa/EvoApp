@@ -9,10 +9,13 @@ import { CounterService } from './counter.service';
 export class AppComponent {
   value: number[] = [];
   randomValue: string[] = [];
+  buttonsDisabled: boolean[] = [];
 
   constructor(private counterService: CounterService) {}
 
   ngOnInit() {
+    this.buttonsDisabled = [false, false];
+
     this.counterService.getValue().subscribe({
       next: (value) => this.value.push(value),
     });
@@ -27,9 +30,11 @@ export class AppComponent {
 
   stopValueCounter() {
     this.counterService.stopValueCounter();
+    this.buttonsDisabled[0] = true;
   }
 
   stopRandomValueCounter() {
     this.counterService.stopRandomValueCounter();
+    this.buttonsDisabled[1] = true;
   }
 }
