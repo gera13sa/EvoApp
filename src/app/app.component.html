@@ -1,1 +1,38 @@
-<span>App</span>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button (click)="stopValueCounter()" class="btn btn-primary w-100">
+        Остановить поток
+      </button>
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Поток последовательных чисел</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let val of value">
+            <td>{{ val }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <button (click)="stopRandomValueCounter()" class="btn btn-primary w-100">
+        Остановить поток
+      </button>
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Поток случайных чисел</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rndValue of randomValue">
+            <td>{{ rndValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
