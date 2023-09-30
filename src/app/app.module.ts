@@ -8,9 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ResolveTestComponent } from './resolveTest/resolveTest.component';
 
 @NgModule({
-  declarations: [	AppComponent,
-      ResolveTestComponent
-   ],
+  declarations: [AppComponent, ResolveTestComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [FetchDataService],
   bootstrap: [AppComponent],
