@@ -1,1 +1,50 @@
-<span>App</span>
+<div class="container-xl pt-2">
+  <h1 class="header">HTTPClient Test</h1>
+
+  <div
+    *ngIf="successfulFetching"
+    class="alert alert-success alert-dismissible fade show"
+  >
+    The data was successfully displayed in your browsers console!
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div
+    *ngIf="successfulFetching === false"
+    class="alert alert-danger alert-dismissible fade show"
+  >
+    An error {{ errCode }} accrued!
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="row row-gap-1 column-gap-sm-1">
+    <button (click)="getData(1)" class="btn btn-outline-primary col-sm">
+      Запрос №1
+    </button>
+    <button (click)="getData(2)" class="btn btn-outline-primary col-sm">
+      Запрос №2
+    </button>
+    <button (click)="getData(3)" class="btn btn-outline-primary col-sm">
+      Запрос №3
+    </button>
+    <button (click)="getData(4)" class="btn btn-outline-primary col-sm">
+      Запрос №4
+    </button>
+    <button (click)="getData(5)" class="btn btn-outline-primary col-sm">
+      Запрос №5
+    </button>
+    <button (click)="getData(6)" class="btn btn-outline-primary col-sm">
+      Запрос №6
+    </button>
+  </div>
+</div>
