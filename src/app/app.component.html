@@ -2,7 +2,7 @@
   <h1 class="header">HTTPClient Test</h1>
 
   <div
-    *ngIf="successfulFetching"
+    *ngIf="successfulFetched"
     class="alert alert-success alert-dismissible fade show"
   >
     The data was successfully displayed in your browsers console!
@@ -15,7 +15,7 @@
   </div>
 
   <div
-    *ngIf="successfulFetching === false"
+    *ngIf="successfulFetched === false"
     class="alert alert-danger alert-dismissible fade show"
   >
     An error {{ errCode }} accrued!

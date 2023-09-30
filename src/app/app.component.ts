@@ -10,20 +10,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AppComponent {
   constructor(private fetchDataService: FetchDataService) {}
 
-  successfulFetching: boolean | undefined = undefined;
+  successfulFetched: boolean | undefined = undefined;
   errCode: number = 0;
 
   getData(urlNum: number) {
-    this.successfulFetching = undefined;
+    this.successfulFetched = undefined;
 
     this.fetchDataService.getData(urlNum).subscribe({
       next: (response) => console.log(response),
       error: (err: HttpErrorResponse) => {
         console.log(`An error ${err.status} accrued!`);
         this.errCode = err.status;
-        this.successfulFetching = false;
+        this.successfulFetched = false;
       },
-      complete: () => (this.successfulFetching = true),
+      complete: () => (this.successfulFetched = true),
     });
   }
 }
