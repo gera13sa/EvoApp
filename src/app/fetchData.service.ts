@@ -39,4 +39,8 @@ export class FetchDataService {
     }
     return this.httpClient.get('');
   }
+
+  getResolvedData() {
+    return this.httpClient.get(this.urlsArray[0] + '/1');
+  }
 }
