@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-
 export class AppComponent {
-  textToDisplay = 'hello';
+  constructor(private dataService: DataService) {}
+
+  todoData = '';
+
+  ngOnInit() {
+    this.dataService.getData().subscribe((data) => data);
+  }
 }
