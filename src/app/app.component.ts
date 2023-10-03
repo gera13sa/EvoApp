@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,22 @@ import { DataService } from './data.service';
 export class AppComponent {
   constructor(private dataService: DataService) {}
 
-  todoData = '';
+  todoData?: Object;
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  fetchData() {
     this.dataService.getData().subscribe({
-      next: this.todoData = next;
+      next: (response) => {
+        this.todoData = response;
+        console.log(this.todoData);
+      },
+      error: (err: HttpErrorResponse) => console.log(err.status),
     });
+  }
+
+  clearData() {
+    this.todoData = undefined;
+    console.clear();
   }
 }

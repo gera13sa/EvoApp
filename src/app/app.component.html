@@ -1,4 +1,28 @@
-<div class="container container-xl">
-  <h2>HttpInterceptors тест:</h2>
-  <button class="btn btn-primary">Получить данные</button>
+<div class="container container-fluid">
+  <h2 class="header">Http Interceptors</h2>
+
+  <button class="btn btn-primary m-1" (click)="fetchData()">
+    Получить данные с сервера
+  </button>
+  <button
+    *ngIf="todoData !== undefined"
+    class="btn btn-danger m-1"
+    (click)="clearData()"
+  >
+    Отчистить
+  </button>
+
+  <div *ngIf="todoData !== undefined" class="card m-3">
+    <div class="card-body">
+      <h3 class="card-title">Значения:</h3>
+      <ul *ngFor="let todo of todoData | keyvalue" class="list-group m-2">
+        <li class="list-group-item">
+          Ключ: <b>{{ todo.key }}</b>
+        </li>
+        <li class="list-group-item">
+          Значение: <b>{{ todo.value }}</b>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
