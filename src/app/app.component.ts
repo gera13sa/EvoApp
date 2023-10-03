@@ -12,6 +12,8 @@ export class AppComponent {
   todoData = '';
 
   ngOnInit() {
-    this.dataService.getData().subscribe((data) => data);
+    this.dataService.getData().subscribe({
+      next: this.todoData = next;
+    });
   }
 }
