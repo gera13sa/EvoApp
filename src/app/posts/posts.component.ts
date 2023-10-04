@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
+import { IPosts } from './IPosts';
 
 @Component({
   selector: 'app-posts',
@@ -11,14 +12,11 @@ import { JsonPipe } from '@angular/common';
 export class PostsComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
-  postsData!: any;
+  postsData!: IPosts[];
 
   ngOnInit() {
-    this.dataService.getPosts().subscribe({
-      next: (response) => {
-        this.postsData = response;
-        console.log(this.postsData[0]);
-      },
+    this.dataService.getAllPosts().subscribe({
+      next: (response) => (this.postsData = response),
       error: (err: HttpErrorResponse) => console.log(`Ошибка №${err.status}`),
     });
   }

@@ -1,4 +1,9 @@
-<ng-container *ngFor="let post of postsData">
-  <p>{{ post.userId }} : {{ post.title }}</p>
-  <a [routerLink]="post.id">Подробности</a>
-</ng-container>
+<div *ngFor="let post of postsData" class="card m-2">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <h6>by user: {{ post.userId }}</h6>
+    <a [routerLink]="post.id?.toString()" class="btn btn-primary"
+      >Подробности</a
+    >
+  </div>
+</div>

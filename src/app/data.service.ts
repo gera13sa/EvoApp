@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IPosts } from './posts/IPosts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  userRole: 'user' | 'admin' = 'user';
   constructor(private httpClient: HttpClient) {}
 
-  getPosts(id?: number) {
-    if (id !== undefined)
-      return this.httpClient.get(
-        'https://jsonplaceholder.typicode.com/posts' + `/${id}`
-      );
+  userRole: 'user' | 'admin' = 'user';
 
-    return this.httpClient.get('https://jsonplaceholder.typicode.com/posts');
+  getAllPosts(): Observable<IPosts[]> {
+    return this.httpClient.get<IPosts[]>(
+      'https://jsonplaceholder.typicode.com/posts'
+    );
+  }
+
+  getPost(id: string): Observable<IPosts> {
+    return this.httpClient.get<IPosts>(
+      'https://jsonplaceholder.typicode.com/posts/' + id
+    );
   }
 }
