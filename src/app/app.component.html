@@ -1,10 +1,12 @@
 <div class="container-xl">
   <h1>Динамический компонент, ng-template и ng-container</h1>
+
   <button (click)="addComponent()" class="btn btn-primary m-1">
     Добавить компонент
   </button>
   <button (click)="deleteComponent()" class="btn btn-danger m-1">
     Удалить компонент
   </button>
-  <ng-container #dynamicComponent></ng-container>
+
+  <div #dynamicComponent></div>
 </div>
