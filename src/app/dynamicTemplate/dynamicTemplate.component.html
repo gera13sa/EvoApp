@@ -1,14 +1,16 @@
-<ng-container>
+<div *ngTemplateOutlet="dynamicTable"></div>
+
+<ng-template #dynamicTable>
   <table class="table table-striped">
     <thead>
-      <th>Один</th>
-      <th>Два</th>
+      <th>Key</th>
+      <th>Value</th>
     </thead>
     <tbody>
-      <tr>
-        <td>123</td>
-        <td>123</td>
+      <tr *ngFor="let user of usersData | keyvalue">
+        <td>{{ user.key }}</td>
+        <td>{{ user.value | json }}</td>
       </tr>
     </tbody>
   </table>
-</ng-container>
+</ng-template>

@@ -12,6 +12,8 @@ import { DynamicTemplateComponent } from './dynamicTemplate/dynamicTemplate.comp
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  constructor() {}
+
   @ViewChild('dynamicComponent', { read: ViewContainerRef })
   private viewRef!: ViewContainerRef;
   private componentRef!: ComponentRef<DynamicTemplateComponent>;

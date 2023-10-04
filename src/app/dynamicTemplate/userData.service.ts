@@ -8,6 +8,6 @@ export class UserDataService {
   constructor(private httpClient: HttpClient) {}
 
   getUsersData() {
-    return this.httpClient.get('https://jsonplaceholder.typicode.com/users');
+    return this.httpClient.get('https://jsonplaceholder.typicode.com/users/1');
   }
 }
