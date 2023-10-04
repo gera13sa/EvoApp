@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <label for="title" class="form-label m-1">Название: </label
+    ><input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      [(ngModel)]="postData.title"
+    />
+
+    <label for="body" class="form-label m-1">Название: </label
+    ><textarea
+      type="text"
+      class="form-control"
+      id="body"
+      name="body"
+      [(ngModel)]="postData.body"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-primary mt-1">Сохранить</button>
+</form>

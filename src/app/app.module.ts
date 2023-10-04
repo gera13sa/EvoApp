@@ -8,9 +8,19 @@ import { DataService } from './data.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDetailsComponent } from './posts/postDetails/postDetails.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { MainComponent } from './main/main.component';
+import { PostEditComponent } from './posts/postEdit/postEdit.component';
 
 @NgModule({
-  declarations: [AppComponent, PostsComponent, PostDetailsComponent],
+  declarations: [
+    AppComponent,
+    PostsComponent,
+    PostDetailsComponent,
+    ErrorPageComponent,
+    MainComponent,
+    PostEditComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DataService],
   bootstrap: [AppComponent],

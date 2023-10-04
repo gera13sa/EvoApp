@@ -14,10 +14,15 @@ export class PostsComponent implements OnInit {
 
   postsData!: IPosts[];
 
+  isLoading!: boolean;
+
   ngOnInit() {
+    this.isLoading = true;
+
     this.dataService.getAllPosts().subscribe({
       next: (response) => (this.postsData = response),
       error: (err: HttpErrorResponse) => console.log(`Ошибка №${err.status}`),
+      complete: () => (this.isLoading = false),
     });
   }
 }

@@ -22,4 +22,8 @@ export class DataService {
       'https://jsonplaceholder.typicode.com/posts/' + id
     );
   }
+
+  changeRole() {
+    this.userRole = this.userRole === 'user' ? 'admin' : 'user';
+  }
 }

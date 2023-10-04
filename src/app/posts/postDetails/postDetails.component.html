@@ -1,10 +1,14 @@
-<div class="card m-2">
+<h1 *ngIf="isLoading" class="text-center m-5">Loading...</h1>
+<div *ngIf="!isLoading" class="card m-2">
   <div class="card-body">
     <h4 class="card-title">{{ postData.title }}</h4>
     <h6>by user: {{ postData.userId }}</h6>
+    <h6>id: {{ postData.id }}</h6>
     <div class="card-text">
-      <p>Text: {{ postData.body }}</p>
+      <p>{{ postData.body }}</p>
     </div>
-    <button routerLink="edit" class="btn btn-primary">Редактировать</button>
+    <button class="btn btn-primary m-1" routerLink="edit">Редактировать</button>
+
+    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
   </div>
 </div>

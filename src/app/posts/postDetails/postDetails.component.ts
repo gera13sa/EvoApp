@@ -1,8 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ComponentRef,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { IPosts } from '../IPosts';
+import { PostEditComponent } from '../postEdit/postEdit.component';
 
 @Component({
   selector: 'app-postDetails',
@@ -15,7 +23,10 @@ export class PostDetailsComponent {
     private dataService: DataService
   ) {}
 
+  isLoading!: boolean;
+
   id: string = '0';
+
   postData: IPosts = {
     id: undefined,
     userId: undefined,
@@ -24,6 +35,8 @@ export class PostDetailsComponent {
   };
 
   ngOnInit() {
+    this.isLoading = true;
+
     this.id = this.activeRouter.snapshot.paramMap.get('id')!;
 
     this.dataService.getPost(this.id).subscribe({
@@ -31,6 +44,11 @@ export class PostDetailsComponent {
         this.postData = response;
       },
       error: (err: HttpErrorResponse) => console.log(err.status),
+      complete: () => (this.isLoading = false),
     });
+  }
+
+  onOutletLoaded(component: PostEditComponent) {
+    component.postData = this.postData;
   }
 }
