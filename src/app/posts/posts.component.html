@@ -1,0 +1,4 @@
+<ng-container *ngFor="let post of postsData">
+  <p>{{ post.userId }} : {{ post.title }}</p>
+  <a [routerLink]="post.id">Подробности</a>
+</ng-container>
