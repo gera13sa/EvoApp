@@ -19,11 +19,16 @@ export class AppComponent {
   private componentRef!: ComponentRef<DynamicTemplateComponent>;
 
   addComponent() {
-    this.viewRef.clear();
-    this.componentRef = this.viewRef.createComponent(DynamicTemplateComponent);
+    if (this.viewRef.length === 0) {
+      this.viewRef.clear();
+      this.componentRef = this.viewRef.createComponent(
+        DynamicTemplateComponent
+      );
+    }
   }
 
   deleteComponent() {
     this.viewRef.clear();
+    this.componentRef.destroy();
   }
 }
