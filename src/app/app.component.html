@@ -1,1 +1,28 @@
-<span>App</span>
+<div class="container-xxl">
+  <h1>ToDo List</h1>
+  <form class="row g-3">
+    <div class="col-auto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Task"
+        name="taskName"
+        [(ngModel)]="newTodo"
+        maxlength="128"
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3" (click)="addTodo()">
+        Add
+      </button>
+    </div>
+  </form>
+  <ng-container *ngFor="let task of tasksList">
+    <p>
+      {{ task.id }}. {{ task.task }}
+      <button class="btn btn-danger pt-0 pb-0" (click)="deleteTodo(task.id!)">
+        X
+      </button>
+    </p>
+  </ng-container>
+</div>
