@@ -5,11 +5,11 @@
       <input
         type="text"
         class="form-control col-auto"
-        placeholder="Задача"
+        placeholder="Ваша задача"
         name="taskName"
         #taskField="ngModel"
         [(ngModel)]="newTodo"
-        maxlength="128"
+        maxlength="32"
         minlength="1"
         required
       />
@@ -18,7 +18,7 @@
       <button
         [disabled]="taskField.invalid"
         type="submit"
-        class="btn btn-primary"
+        class="btn btn-outline-primary"
         (click)="addTodo()"
       >
         Добавить
@@ -31,12 +31,12 @@
         class="form-check-input"
         type="checkbox"
         value=""
-        id="taskCheck"
+        [id]="task.id"
         (change)="taskChecked(task.id!, $event)"
       />
       <label
         class="form-check-label"
-        for="taskCheck"
+        [for]="task.id"
         [ngClass]="{ 'striked-text': task.isDone }"
       >
         {{ task.taskText }}
