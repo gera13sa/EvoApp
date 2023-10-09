@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { ITask, TasksAdd, TasksDelete } from './model/tasks.model';
+import { ITask, TasksAdd, TasksDelete, TasksDone } from './model/tasks.model';
 import { patch, removeItem } from '@ngxs/store/operators';
 import { Observable } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class TasksState {
       ...ctx.getState(),
       {
         id: action.payload.id,
-        task: action.payload.task,
+        taskText: action.payload.taskText,
         isDone: action.payload.isDone,
       },
     ]);
@@ -32,5 +32,13 @@ export class TasksState {
     const state = ctx.getState();
     const filteredTasks = state.filter((task) => task.id !== action.id);
     ctx.setState(filteredTasks);
+  }
+
+  @Action(TasksDone)
+  taskIsDone(ctx: StateContext<ITask[]>, action: TasksDone) {
+    const state = ctx.getState();
+    state.filter((task) => {
+      if (task.id === action.id) task.isDone = action.isDone;
+    });
   }
 }

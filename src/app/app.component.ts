@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ITask, TasksAdd, TasksDelete } from 'src/store/model/tasks.model';
+import {
+  ITask,
+  TasksAdd,
+  TasksDelete,
+  TasksDone,
+} from 'src/store/model/tasks.model';
 import { TasksState } from 'src/store/tasks.state';
 
 @Component({
@@ -11,7 +16,7 @@ import { TasksState } from 'src/store/tasks.state';
 export class AppComponent {
   constructor(private store: Store) {}
 
-  newTodo = '';
+  newTodo: string = '';
   tasksList: ITask[] = [];
 
   ngOnInit() {
@@ -24,14 +29,19 @@ export class AppComponent {
     this.store.dispatch(
       new TasksAdd({
         id: this.tasksList.length,
-        task: this.newTodo,
+        taskText: this.newTodo,
         isDone: false,
       })
     );
-    console.log(this.tasksList);
+    this.newTodo = '';
   }
 
-  deleteTodo(index: number) {
-    this.store.dispatch(new TasksDelete(index));
+  deleteTodo(id: number) {
+    this.store.dispatch(new TasksDelete(id));
+  }
+
+  taskChecked(id: number, $event: any) {
+    const isChecked = $event.target.checked;
+    this.store.dispatch(new TasksDone(id, isChecked));
   }
 }
